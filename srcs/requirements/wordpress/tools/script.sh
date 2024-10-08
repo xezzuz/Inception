@@ -1,6 +1,11 @@
 #!/bin/bash
 
+echo wordpress-script
+
 sleep 5
+
+mkdir -p /var/www/html
+mkdir -p /run/php/
 
 # change working directory to default wordpress webpages
 cd /var/www/html
@@ -37,16 +42,16 @@ sudo -u www-data wp core download
 
 # generating wp-config.php file
 # wp-config.php contains the config for connecting with the database (MariaDB)
-sudo -u www-data wp config create --dbname=$DB_NAME --dbuser=$USR_NAME --dbpass=$USR_PASS --dbhost=maria-db
+sudo -u www-data wp config create --dbname=$DB_NAME --dbuser=$USR_NAME --dbpass=$USR_PASS --dbhost=$DB_HOST
 
 # setting up the wordpress website with the config provided in the arguments
-sudo -u www-data wp core install --url=https://nazouz.42.fr --title=$WP_TITLE --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASS --admin_email=$WP_ADMIN_EMAIL
+sudo -u www-data wp core install --url=https://localhost --title=$WP_TITLE --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASS --admin_email=$WP_ADMIN_EMAIL
 
-# creates a new wordpress editor user
+# # creates a new wordpress editor user
 sudo -u www-data wp user create $WP_USER $WP_USER_EMAIL --role=editor --user_pass=$WP_PASS
 
-# configuring the php-fpm to listen on port 9000 instead of using unix socket
+# # configuring the php-fpm to listen on port 9000 instead of using unix socket
 sed -i '36 s@/run/php/php7.4-fpm.sock@9000@' /etc/php/7.4/fpm/pool.d/www.conf
 
-# launching the php-fpm in the foreground
+# # launching the php-fpm in the foreground
 php-fpm7.4 -F

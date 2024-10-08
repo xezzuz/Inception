@@ -1,6 +1,12 @@
 #!/bin/bash
 
+echo mariadb-script
+
+mv ./50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+
 service mariadb start
+
+echo mariadb-script-1
 
 sleep 5
 
