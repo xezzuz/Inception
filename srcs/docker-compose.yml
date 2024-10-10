@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   nginx:
     container_name: nginx-container
@@ -55,7 +53,7 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: /Users/nazouz/data/wordpress
+      device: /home/nazouz/data/wordpress
 
   mariadb:
     name: mariadb
@@ -63,4 +61,4 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: /Users/nazouz/data/mariadb
+      device: /home/nazouz/data/mariadb

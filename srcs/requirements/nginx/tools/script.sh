@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo nginx-script
-
 chown -R www-data:www-data /var/www/html
 
 openssl req -x509 -nodes \

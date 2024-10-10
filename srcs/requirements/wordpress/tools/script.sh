@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo wordpress-script
-
 sleep 5
 
 mkdir -p /var/www/html
@@ -45,7 +43,7 @@ sudo -u www-data wp core download
 sudo -u www-data wp config create --dbname=$DB_NAME --dbuser=$USR_NAME --dbpass=$USR_PASS --dbhost=$DB_HOST
 
 # setting up the wordpress website with the config provided in the arguments
-sudo -u www-data wp core install --url=https://localhost --title=$WP_TITLE --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASS --admin_email=$WP_ADMIN_EMAIL
+sudo -u www-data wp core install --url=https://nazouz.42.fr --title=$WP_TITLE --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASS --admin_email=$WP_ADMIN_EMAIL
 
 # # creates a new wordpress editor user
 sudo -u www-data wp user create $WP_USER $WP_USER_EMAIL --role=editor --user_pass=$WP_PASS
