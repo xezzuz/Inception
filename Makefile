@@ -16,9 +16,9 @@ start:
 	docker compose up -f ./srcs/docker-compose.yml -d --build
 
 stop:
-	docker compose down
+	docker compose down -f ./srcs/docker-compose.yml
 
-clean:
+clean: stop
 	rm -rf /home/nazouz/data/*
 	mkdir -p /home/nazouz/mariadb
 	mkdir -p /home/nazouz/wordpress
