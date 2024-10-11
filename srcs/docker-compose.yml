@@ -41,6 +41,17 @@ services:
     volumes:
       - mariadb:/var/lib/mysql
     restart: always
+  
+  adminer:
+    container_name: adminer-container
+    build: ./requirements/bonus/adminer/.
+    image: adminer-img
+    env_file: .env
+    ports:
+      - "6000:6000"
+    networks:
+      - inception
+    restart: always
 
 networks:
   inception:
