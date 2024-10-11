@@ -10,16 +10,20 @@
 #                                                                              #
 # **************************************************************************** #
 
-all: start
+all: build
+
+build:
+	mkdir -p /home/nazouz/data/mariadb
+	mkdir -p /home/nazouz/data/wordpress
+	docker compose -f ./srcs/docker-compose.yml up -d --build
 
 start:
-	docker compose up -f ./srcs/docker-compose.yml -d --build
+	docker compose -f ./srcs/docker-compose.yml up -d
 
 stop:
-	docker compose down -f ./srcs/docker-compose.yml
+	docker compose -f ./srcs/docker-compose.yml down
 
 clean: stop
-	rm -rf /home/nazouz/data/*
-	mkdir -p /home/nazouz/mariadb
-	mkdir -p /home/nazouz/wordpress
+	rm -rf /home/nazouz/data/wordpress/*
+	rm -rf /home/nazouz/data/mariadb/*
 	docker system prune -af
