@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/28 17:18:17 by nazouz            #+#    #+#              #
-#    Updated: 2024/10/11 18:58:47 by nazouz           ###   ########.fr        #
+#    Created: 2024/10/11 18:56:19 by nazouz            #+#    #+#              #
+#    Updated: 2024/10/11 18:59:20 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM debian:bullseye
 
-RUN apt-get update && apt-get -y upgrade
+RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y mariadb-server
+RUN apt-get install wget php php-mysql -y
 
 COPY ./tools /tools/
 
