@@ -52,17 +52,20 @@ define('WP_REDIS_PORT', 6379);
 PHP
 
 # setting up the wordpress website with the config provided in the arguments
-sudo -u www-data wp core install
-				--title=$WP_TITLE
-				--url=https://nazouz.42.fr
-				--admin_user=$WP_ADMIN_USER
-				--admin_password=$WP_ADMIN_PASS
+sudo -u www-data wp core install \
+				--title=$WP_TITLE \
+				--url=https://nazouz.42.fr \
+				--admin_user=$WP_ADMIN_USER \
+				--admin_password=$WP_ADMIN_PASS \
 				--admin_email=$WP_ADMIN_EMAIL
 
 # creates a new wordpress editor user
-sudo -u www-data wp user create $WP_USER $WP_USER_EMAIL --role=editor --user_pass=$WP_PASS
+sudo -u www-data wp user create $WP_USER $WP_USER_EMAIL \
+								--role=editor --user_pass=$WP_PASS
 
-sudo -u www-data wp plugin install redis-cache --activate
+sudo -u www-data wp plugin install redis-cache
+
+sudo -u www-data wp redis enable
 
 # configuring the php-fpm to listen on port 9000 instead of using unix socket
 sed -i '36 s@/run/php/php7.4-fpm.sock@9000@' /etc/php/7.4/fpm/pool.d/www.conf
