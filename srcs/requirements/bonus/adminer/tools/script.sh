@@ -10,4 +10,4 @@ cd /var/www/html
 
 rm -rf index.html
 
-php -S 0.0.0.0:6000
+php -S 0.0.0.0:9001
