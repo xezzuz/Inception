@@ -65,6 +65,22 @@ services:
     volumes:
       - wordpress:/var/www/html
     restart: always
+  
+  cadvisor:
+    container_name: cadvisor-container
+    build: ./requirements/bonus/cadvisor/.
+    image: cadvisor-img
+    env_file: .env
+    ports:
+      - "8080:8080"
+    networks:
+      - inception
+    restart: always
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro 
+      - /sys:/sys:ro 
+      - /var/lib/docker/:/var/lib/docker:ro
 
 networks:
   inception:
