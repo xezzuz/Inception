@@ -65,7 +65,7 @@ sudo -u www-data wp user create $WP_USER $WP_USER_EMAIL \
 
 sudo -u www-data wp plugin install redis-cache
 
-sudo -u www-data wp redis enable
+sudo -u www-data wp redis enable --activate
 
 # configuring the php-fpm to listen on port 9000 instead of using unix socket
 sed -i '36 s@/run/php/php7.4-fpm.sock@9000@' /etc/php/7.4/fpm/pool.d/www.conf
