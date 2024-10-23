@@ -6,7 +6,7 @@
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/10 18:21:30 by nazouz            #+#    #+#              #
-#    Updated: 2024/10/22 19:33:25 by nazouz           ###   ########.fr        #
+#    Updated: 2024/10/23 15:38:04 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ stop:
 	docker compose -f ./srcs/docker-compose.yml down
 
 clean: stop
+	docker system prune -af
+
+dbclean:
 	rm -rf /home/nazouz/data/wordpress/*
 	rm -rf /home/nazouz/data/mariadb/*
-	docker system prune -af
