@@ -12,9 +12,9 @@
 
 FROM debian:bullseye
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update
 
-RUN apt-get install wget php php-mysql -y
+RUN apt-get install curl php php-mysql -y
 
 COPY ./tools /tools/
 

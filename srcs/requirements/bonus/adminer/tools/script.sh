@@ -1,8 +1,6 @@
 #!/bin/bash
 
-curl -O /var/www/html/adminer/adminer.php http://www.adminer.org/latest.php
-
-curl -O /var/www/html/adminer/adminer.css https://raw.githubusercontent.com/vrana/adminer/master/designs/dracula/adminer.css
+curl -L -o /var/www/html/adminer.php https://www.adminer.org/latest.php
 
 chown -R www-data:www-data /var/www/html/adminer.php
 
