@@ -9,7 +9,7 @@ mkdir -p /run/php/
 cd /var/www/html
 
 # clean all the existing files
-rm -rf *
+# rm -rf *
 
 # downloading the wp-cli - wordpress client: a command-line tool to interact with wordpress
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar

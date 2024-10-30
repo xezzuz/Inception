@@ -95,6 +95,16 @@ services:
       - /var/run:/var/run:ro 
       - /sys:/sys:ro 
       - /var/lib/docker/:/var/lib/docker:ro
+  
+  website:
+    container_name: website-container
+    build: ./requirements/bonus/website/.
+    image: website-img
+    ports:
+      - "1337:1337"
+    networks:
+      - inception
+    restart: always
 
 networks:
   inception:
