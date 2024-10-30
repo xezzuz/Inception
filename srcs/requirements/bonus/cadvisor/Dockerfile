@@ -14,6 +14,10 @@ FROM debian:bullseye
 
 RUN apt-get update
 
-RUN apt-get install -y cadvisor
+RUN apt-get install -y curl
 
-CMD cadvisor
+RUN curl -L https://github.com/google/cadvisor/releases/download/v0.49.1/cadvisor-v0.49.1-linux-amd64 -o cadvisor
+
+RUN chmod +x cadvisor
+
+CMD ./cadvisor
