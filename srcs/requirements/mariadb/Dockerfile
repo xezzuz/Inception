@@ -6,13 +6,13 @@
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/28 17:18:17 by nazouz            #+#    #+#              #
-#    Updated: 2024/10/11 18:58:47 by nazouz           ###   ########.fr        #
+#    Updated: 2024/10/30 18:16:09 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM debian:bullseye
 
-RUN apt-get update && apt-get -y upgrade
+RUN apt-get update
 
 RUN apt-get install -y mariadb-server
 

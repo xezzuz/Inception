@@ -1,26 +1,12 @@
-# #!/bin/bash
-
-# useradd -m $FTP_USER
-
-# echo "$FTP_USER:$FTP_PASS" | chpasswd
-
-# echo $FTP_USER >> /etc/vsftp.userlist
-
-# mkdir -p /home/$FTP_USER/ftp/somefiles
-
-# chown "$FTP_USER:$FTP_USER" "/home/$FTP_USER/ftp/somefiles"
-
-# vsftpd
-
 #!/bin/sh
+
+mkdir -p /var/run/vsftpd/empty; #####
 
 adduser --home /wp-files --quiet --disabled-password --gecos "" $FTP_USER;
 
 echo "$FTP_USER:$FTP_PASS" | chpasswd
 
-mkdir -p /var/run/vsftpd/empty;
-
-chown $FTP_USER:$FTP_USER /wp-files;
+chown -R $FTP_USER:$FTP_USER /wp-files;
 
 echo "
 write_enable=YES
