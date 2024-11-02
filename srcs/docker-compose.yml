@@ -2,7 +2,7 @@ services:
   nginx:
     container_name: nginx-container
     build: ./requirements/nginx/.
-    image: nginx-img
+    image: nginx
     env_file: .env
     ports:
       - "443:443"
@@ -17,7 +17,7 @@ services:
   wordpress:
     container_name: wordpress-container
     build: ./requirements/wordpress/.
-    image: wordpress-img
+    image: wordpress
     env_file: .env
     ports:
       - "9000:9000"
@@ -32,7 +32,7 @@ services:
   mariadb:
     container_name: mariadb-container
     build: ./requirements/mariadb/.
-    image: mariadb-img
+    image: mariadb
     env_file: .env
     ports:
       - "3306:3306"
@@ -45,7 +45,7 @@ services:
   adminer:
     container_name: adminer-container
     build: ./requirements/bonus/adminer/.
-    image: adminer-img
+    image: adminer
     env_file: .env
     ports:
       - "9001:9001"
@@ -56,7 +56,7 @@ services:
   redis:
     container_name: redis-container
     build: ./requirements/bonus/redis/.
-    image: redis-img
+    image: redis
     env_file: .env
     ports:
       - "6379:6379"
@@ -69,7 +69,7 @@ services:
   ftp:
     container_name: ftp-container
     build: ./requirements/bonus/ftp/.
-    image: ftp-img
+    image: ftp
     env_file: .env
     ports:
       - "20-21:20-21"
@@ -83,7 +83,7 @@ services:
   cadvisor:
     container_name: cadvisor-container
     build: ./requirements/bonus/cadvisor/.
-    image: cadvisor-img
+    image: cadvisor
     env_file: .env
     ports:
       - "8080:8080"
@@ -99,7 +99,7 @@ services:
   website:
     container_name: website-container
     build: ./requirements/bonus/website/.
-    image: website-img
+    image: website
     ports:
       - "1337:1337"
     networks:
