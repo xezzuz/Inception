@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mkdir -p /var/run/vsftpd/empty; #####
+mkdir -p /var/run/vsftpd/empty;
 
 adduser --home /wp-files --quiet --disabled-password --gecos "" $FTP_USER;
 
