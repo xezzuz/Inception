@@ -4,6 +4,7 @@ sleep 5
 mkdir -p /var/www/html
 mkdir -p /run/php/
 cd /var/www/html
+sed -i "s/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/" /etc/php/7.4/fpm/pool.d/www.conf
 
 
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -39,6 +40,5 @@ wp plugin install redis-cache --activate --allow-root
 
 wp redis enable --allow-root
 
-sed -i "s/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/" /etc/php/7.4/fpm/pool.d/www.conf
 
 php-fpm7.4 -F
